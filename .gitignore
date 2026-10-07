@@ -1,0 +1,185 @@
+# SCOPO DEL FILE:
+# Questo file definisce i pattern dei file e delle cartelle che Git deve 
+# ignorare AUTOMATICAMENTE, evitando che vengano caricati nei repository di Github.
+# Serve a prevenire due pericoli principali:
+# 1. Fuga di dati sensibili (chiavi API, password, token, file .env, credenziali, file Excel/PDF con dati clienti).
+# 2. Inquinamento del codice (cartelle node_modules, ambienti virtuali Python, cache, file temporanei di sistema/IDE).
+#
+# COME INCLUDERE UGUALMENTE FILE NON SENSIBILI:
+# Puoi includere ugualmente un file che verrebbe altrimenti escluso da questo file ".gitignore".
+# Per farlo, aggiungi una riga in fondo al file usando la sintassi con il punto esclamativo
+# seguita dal nome completo (o percorso) del file:
+#
+#   !nomefile.estensione
+#
+# ESEMPI PRATICI DA AGGIUNGERE IN FONDO AL FILE:
+# - Per includere un foglio Excel specifico:
+#     !file_non_sensibile.xlsx
+#
+# - Per includere un documento di testo specifico:
+#     !istruzioni.txt
+#
+# - Per includere un file specifico dentro una cartella bloccata:
+#     !data/file_non_sensibile.json
+#
+# IMPORTANTE: Le eccezioni con "!" funzionano correttamente se inserite in fondo al file,
+# dopo le regole generali di blocco.
+# ==========================================
+
+
+# ==========================================
+# 1. DOCUMENTI, MEDIA E DATI AZIENDALI
+# ==========================================
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+*.tsv
+*.ods
+*.numbers
+
+*.pdf
+*.doc
+*.docx
+*.odt
+*.rtf
+*.pages
+
+*.ppt
+*.pptx
+*.odp
+*.key
+
+# Note di testo (spesso usate per appunti con password o liste)
+*.txt
+
+# Archivi e Backup
+*.zip
+*.tar
+*.gz
+*.tgz
+*.7z
+*.rar
+*.iso
+*.dmg
+
+# Grafica sorgente, Diagrammi e Scansioni
+*.psd
+*.ai
+*.sketch
+*.vsd
+*.vsdx
+*.drawio
+*.tiff
+*.tif
+
+# Database locali e Dump dati
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+*.jsonl
+*.ndjson
+
+
+# ==============================================
+# 2. CREDENZIALI, CHIAVI E VARIABILI D'AMBIENTE
+# ==============================================
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Chiavi, Certificati e Token
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.csr
+.npmrc
+
+# Chiavi SSH e Credenziali Cloud
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+credentials.json
+*_credentials.json
+
+# ==========================================
+# 3. PYTHON (Virtual Environments & Cache)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Jupyter / Test / Packaging
+.ipynb_checkpoints
+.pytest_cache/
+.coverage
+htmlcov/
+poetry.lock.bak
+
+# ==========================================
+# 4. NODE.JS / WEB / LOVABLE / BUILD OUTPUTS
+# ==========================================
+/node_modules
+/.pnpm-store
+/dist
+/build
+/out
+/.next
+/.nuxt
+/.vite
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Supabase / Backend locali / Tool AI
+.supabase/local/
+.claude/
+.cursor/
+
+# ==========================================
+# 5. OS & IDE TEMP FILES
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Config Editor (blocca impostazioni locali e launch configs sensibili)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+
+
+# ================================================
+# AGGIUNGI QUI SOTTO LE TUE REGOLE PERSONALIZZATE
+# ================================================
